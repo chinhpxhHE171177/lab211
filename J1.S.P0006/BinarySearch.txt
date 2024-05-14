@@ -1,0 +1,43 @@
+// BinarySearch
+// Nếu trong 1 mảng chứa 2 phần tử giống nhau mà muốn in ra cả 2 index
+public static void binarySearch(int[] arr, int x) {
+    int left = 0;
+    int right = arr.length - 1;
+    boolean found = false;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == x) {
+            // Check for adjacent elements with the same value
+            int index1 = mid;
+            int index2 = mid;
+
+            // Find the leftmost index of the element
+            while (index1 >= 0 && arr[index1] == x) {
+                index1--;
+            }
+
+            // Find the rightmost index of the element
+            while (index2 < arr.length && arr[index2] == x) {
+                index2++;
+            }
+
+            // Print both indices
+            for (int i = index1 + 1; i < index2; i++) {
+                System.out.println("Found " + x + " at index: " + i);
+            }
+
+            found = true;
+            break;
+        } else if (arr[mid] < x) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    if (!found) {
+        System.out.println("Element not present in the array.");
+    }
+}

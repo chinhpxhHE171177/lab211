@@ -1,0 +1,27 @@
+// Để in ra cả hai chỉ mục trong mảng nếu có hai phần tử giống nhau
+dùng vòng lặp for để duyệt các phần tử thứ i trong mảng
+
+for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == x) {
+            System.out.println("Found " + x + " at index: " + i);
+            found = true;
+        }
+    }
+    
+    if (!found) {
+        System.out.println("Element not present in the array.");
+    }
+}
+
+// check duplicate 
+for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    arr[i] = rd.nextInt(arr.length);
+                    j = -1;
+                }
+
+            }
+
+        }
+
